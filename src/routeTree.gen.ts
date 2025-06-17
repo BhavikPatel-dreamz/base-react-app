@@ -14,7 +14,7 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as BhavikRouteImport } from './routes/bhavik'
 import { Route as SettingsIndexRouteImport } from './routes/settings/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as SettingsProfileRouteImport } from './routes/settings/profile'
@@ -47,9 +47,9 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const BhavikRoute = BhavikRouteImport.update({
+  id: '/bhavik',
+  path: '/bhavik',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SettingsIndexRoute = SettingsIndexRouteImport.update({
@@ -84,7 +84,7 @@ const AdminAnalyticsTypeRoute = AdminAnalyticsTypeRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/bhavik': typeof BhavikRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
@@ -98,7 +98,7 @@ export interface FileRoutesByFullPath {
   '/admin/users': typeof AdminUsersIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/bhavik': typeof BhavikRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
@@ -113,7 +113,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/bhavik': typeof BhavikRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
@@ -129,7 +129,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
+    | '/bhavik'
     | '/dashboard'
     | '/login'
     | '/profile'
@@ -143,7 +143,7 @@ export interface FileRouteTypes {
     | '/admin/users'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
+    | '/bhavik'
     | '/dashboard'
     | '/login'
     | '/profile'
@@ -157,7 +157,7 @@ export interface FileRouteTypes {
     | '/admin/users'
   id:
     | '__root__'
-    | '/'
+    | '/bhavik'
     | '/dashboard'
     | '/login'
     | '/profile'
@@ -172,7 +172,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  BhavikRoute: typeof BhavikRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
   ProfileRoute: typeof ProfileRoute
@@ -223,11 +223,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/bhavik': {
+      id: '/bhavik'
+      path: '/bhavik'
+      fullPath: '/bhavik'
+      preLoaderRoute: typeof BhavikRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/settings/': {
@@ -276,7 +276,7 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  BhavikRoute: BhavikRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
   ProfileRoute: ProfileRoute,
